@@ -3,7 +3,8 @@ from importing.config import *
 
 
 class CsvImporter:
-    file = DEFAULT_FILEPATH + DEFAULT_FILENAME
+    # file = DEFAULT_FILEPATH + DEFAULT_FILENAME
+    file = 'importing/RKI_COVID19.csv'
     data = None
 
     def __init__(self):
@@ -20,3 +21,6 @@ class CsvImporter:
 
     def get_by_header_term(self, header, term):
         return self.data[self.data[header].str.contains(term)]
+
+    def get_all_from_column(self, column):
+        return self.data[column].unique()
